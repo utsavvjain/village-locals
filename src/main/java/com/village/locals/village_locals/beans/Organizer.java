@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "organizer")
+public class Organizer {
     @Id
     @GeneratedValue
-    @Column(name = "user_id")
-    private int userId;
+    @Column(name = "organizer_id")
+    private int organizerId;
     private String email;
     @Column(name = "first_name")
     private String firstName;
@@ -21,8 +21,8 @@ public class User {
     private String password;
     private String contact;
 
-    public User(int userId, String email, String firstName, String lastName, String password, String contact) {
-        this.userId = userId;
+    public Organizer(int organizerId, String email, String firstName, String lastName, String password, String contact) {
+        this.organizerId = organizerId;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,7 +30,7 @@ public class User {
         this.contact = contact;
     }
 
-    public User() {
+    public Organizer() {
     }
 
     public String getContact() {
@@ -57,12 +57,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getOrganizerId() {
+        return organizerId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setOrganizerId(int organizerId) {
+        this.organizerId = organizerId;
     }
 
     public String getEmail() {
