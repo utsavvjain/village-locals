@@ -8,12 +8,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.village.locals.village_locals.beans.Event;
+import com.village.locals.village_locals.beans.EventType;
+import com.village.locals.village_locals.beans.Locality;
 import com.village.locals.village_locals.repositories.EventRepository;
+import com.village.locals.village_locals.repositories.EventTypeRepository;
+import com.village.locals.village_locals.repositories.LocalityRepository;
 
 @Service
 public class EventService {
     @Autowired
     EventRepository eventRepository;
+    @Autowired
+    LocalityRepository localityRepository;
+    @Autowired
+    EventTypeRepository eventTypeRepository;
 
     public int add(Event event) {
         // TODO :: VALIDATIONS
@@ -43,5 +51,13 @@ public class EventService {
     public void deleteByEventId(int eventId) {
         // TODO :: VALIDATIONS
         eventRepository.deleteById(eventId);
+    }
+
+    public List<Locality> getLocalities() {
+        return localityRepository.findAll();
+    }
+
+    public List<EventType> getEventTypes() {
+        return eventTypeRepository.findAll();
     }
 }
